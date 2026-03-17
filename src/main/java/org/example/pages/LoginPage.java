@@ -20,15 +20,16 @@ public class LoginPage {
     private By passwordField = By.name("passwd"); // Microsoft password
     private By signInButton = By.id("idSIButton9"); // Microsoft sign in
     private By mfaReminder = By.id("idSIButton9"); // Microsoft Keep me signed in prompt
-    
-    // Some element that uniquely identifies the actual OMS Dashboard after Microsoft log in
+
+    // Some element that uniquely identifies the actual OMS Dashboard after
+    // Microsoft log in
     private By dashboardElement = By.xpath("//div[contains(@class, 'dashboard') or contains(text(), 'Dashboard')]");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        // MFA approval might take time, allowing 2 minutes
-        this.mfaWait = new WebDriverWait(driver, Duration.ofSeconds(120)); 
+        // MFA approval and slow dashboard redirect might take time, allowing 5 minutes
+        this.mfaWait = new WebDriverWait(driver, Duration.ofSeconds(300));
     }
 
     public void navigateTo(String url) {
@@ -39,19 +40,19 @@ public class LoginPage {
         // Enter Email
         WebElement emailInput = wait.until(ExpectedConditions.visibilityOfElementLocated(emailField));
         emailInput.sendKeys(email);
-        
+
         // Click Next
         wait.until(ExpectedConditions.elementToBeClickable(nextButton)).click();
-        
+
         // Enter Password
         WebElement passwordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField));
         passwordInput.sendKeys(password);
-        
+
         // Click Sign In
         wait.until(ExpectedConditions.elementToBeClickable(signInButton)).click();
 
         // Inform user to approve on phone
-        System.out.println("========== ACTION REQUIRED ==========");
+        System.out.println("ACTION REQUIRED ");
         System.out.println("Please approve the MFA request on your phone.");
         System.out.println("Waiting up to 120 seconds...");
         System.out.println("=====================================");
