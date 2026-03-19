@@ -19,7 +19,7 @@ public class LoginPage {
     private By nextButton = By.id("idSIButton9"); // Microsoft next button
     private By passwordField = By.name("passwd"); // Microsoft password
     private By signInButton = By.id("idSIButton9"); // Microsoft sign in
-    private By mfaReminder = By.id("idSIButton9"); // Microsoft Keep me signed in prompt
+    private By mfaReminder = By.xpath("//input[@type='submit' and @value='Yes'] | //button[contains(., 'Yes')] | //input[@id='idSIButton9']"); // Microsoft Keep me signed in prompt
 
     // Some element that uniquely identifies the actual OMS Dashboard after
     // Microsoft log in
