@@ -30,8 +30,8 @@ public class OrderCreationRegressionTest extends BaseTest {
 
         // EXTRA WAIT: Allow dashboard data to settle as requested by user
         try {
-            System.out.println("Waiting 20 seconds for dashboard to fully settle...");
-            Thread.sleep(20000);
+            System.out.println("Waiting 10 seconds for dashboard to fully settle...");
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

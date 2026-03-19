@@ -13,7 +13,7 @@ public class CustomerPage {
     private WebDriverWait wait;
 
     // Locators for customer creation from actual OMS DOM
-    private By newCustomerBtn = By.xpath("//button[contains(., 'CUSTOMER')]");
+    private By newCustomerBtn = By.xpath("//button[contains(., 'ADD NEW CUSTOMER')]");
     private By firstNameField = By.xpath("//input[@placeholder='First Name']");
     private By lastNameField = By.xpath("//input[@placeholder='Last Name']");
     private By zipCodeField = By.xpath("//input[@placeholder='Zip Code']");
