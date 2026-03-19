@@ -23,7 +23,7 @@ public class LoginPage {
 
     // Some element that uniquely identifies the actual OMS Dashboard after
     // Microsoft log in
-    private By dashboardElement = By.xpath("//div[contains(@class, 'dashboard') or contains(text(), 'Dashboard')]");
+    private By dashboardElement = By.xpath("//a[@title='Customer']");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
