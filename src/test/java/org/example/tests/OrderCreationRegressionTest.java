@@ -11,7 +11,7 @@ public class OrderCreationRegressionTest extends BaseTest {
     String password = "Sourcemash@123!";
     
     // Global Customer Data for shared states
-    String firstName = "Autoscrp";
+    String firstName = "Auto";
     static String lastName = "User_" + System.currentTimeMillis();
     String zipCode = "77808"; // Austin / TX
     

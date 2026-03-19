@@ -12,13 +12,13 @@ public class CustomerPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    // Locators for customer creation (Placeholder)
-    private By newCustomerBtn = By.id("btnCreateCustomer");
-    private By firstNameField = By.id("firstName");
-    private By lastNameField = By.id("lastName");
-    private By zipCodeField = By.id("zipCode");   // Mandatory for Austin/Texas e.g., 78701
-    private By saveCustomerBtn = By.id("btnSaveCustomer");
-    private By confirmationMsg = By.id("customerSuccessMsg");
+    // Locators for customer creation from actual OMS DOM
+    private By newCustomerBtn = By.xpath("//button[contains(., 'ADD NEW CUSTOMER')]");
+    private By firstNameField = By.xpath("//input[@placeholder='First Name']");
+    private By lastNameField = By.xpath("//input[@placeholder='Last Name']");
+    private By zipCodeField = By.xpath("//input[@placeholder='Zip Code']");
+    private By saveCustomerBtn = By.xpath("//button[contains(., 'CONTINUE')]");
+    private By confirmationMsg = By.xpath("//div[contains(text(), 'successfully') or contains(@class, 'success')]");
 
     public CustomerPage(WebDriver driver) {
         this.driver = driver;
