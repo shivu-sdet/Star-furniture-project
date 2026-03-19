@@ -11,8 +11,9 @@ public class DashboardPage {
 
     private WebDriverWait wait;
 
-    private By customerTab = By.id("customerTabMenu"); // Placeholder locator
-    private By quoteTab = By.id("quoteTabMenu");       // Placeholder locator
+    private By customerTab = By.xpath("//a[@title='Customer']");
+    private By quoteTab = By.xpath("//a[@title='Quotes']");
+    private By orderTab = By.xpath("//a[@title='Orders']");
 
     public DashboardPage(WebDriver driver) {
         // Dashboard data takes a significant amount of time to load initially
