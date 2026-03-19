@@ -27,6 +27,14 @@ public class OrderCreationRegressionTest extends BaseTest {
         
         System.out.println("Attempting to login...");
         loginPage.loginWithMFA(email, password);
+
+        // EXTRA WAIT: Allow dashboard data to settle as requested by user
+        try {
+            System.out.println("Waiting 20 seconds for dashboard to fully settle...");
+            Thread.sleep(20000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test(priority = 2, dependsOnMethods = "testLoginAndMFA", description = "Navigates to Dashboard tab and creates a new autoscrp customer.")

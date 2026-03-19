@@ -15,7 +15,8 @@ public class DashboardPage {
     private By quoteTab = By.id("quoteTabMenu");       // Placeholder locator
 
     public DashboardPage(WebDriver driver) {
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        // Dashboard data takes a significant amount of time to load initially
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(120));
     }
 
     public void navigateToCustomers() {
