@@ -13,13 +13,13 @@ public class CustomerPage {
     private WebDriverWait wait;
 
     // Locators for customer creation from actual OMS DOM
-    private By newCustomerBtn = By.xpath("//button[contains(., 'Add') and contains(., 'Customer')] | //button[contains(@class, 'button-primary')] | //a[contains(@class, 'button-primary')]");
-    private By firstNameField = By.xpath("//input[@placeholder='First Name']");
-    private By lastNameField = By.xpath("//input[@placeholder='Last Name']");
-    private By phoneField = By.xpath("//input[contains(@placeholder, 'Phone')]");
-    private By addressField = By.xpath("//input[contains(@placeholder, 'Address Line 1')]");
+    private By newCustomerBtn = By.xpath("//button[normalize-space()='Add new Customer']");
+    private By firstNameField = By.xpath("//label[normalize-space()='First Name']/following::input[1]");
+    private By lastNameField = By.xpath("//label[normalize-space()='Last Name']/following::input[1]");
+    private By phoneField = By.xpath("//label[normalize-space()='Primary Phone Number']/following::input[@formcontrolname='primaryPhoneNo']");
+    private By addressField = By.xpath("//input[@formcontrolname='addressLine1']");
     private By zipCodeField = By.xpath("//input[@placeholder='Zip Code']");
-    private By saveCustomerBtn = By.xpath("//*[contains(text(), 'CONTINUE')] | //button[contains(., 'CONTINUE')] | //a[contains(., 'CONTINUE')]");
+    private By saveCustomerBtn = By.xpath("//button[normalize-space()='Continue']");
     private By confirmationMsg = By.xpath("//div[contains(text(), 'successfully') or contains(@class, 'success')]");
 
     public CustomerPage(WebDriver driver) {
@@ -29,7 +29,7 @@ public class CustomerPage {
 
     public void createCustomer(String fName, String lName, String phone, String address, String zipCode) {
         // Wait for and click New Customer button
-        try { Thread.sleep(3000); } catch (InterruptedException e) {}
+        try { Thread.sleep(5000); } catch (InterruptedException e) {}
         wait.until(ExpectedConditions.elementToBeClickable(newCustomerBtn)).click();
         
         // Enter mandatory details

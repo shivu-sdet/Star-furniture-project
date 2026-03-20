@@ -12,7 +12,7 @@ public class OrderCreationRegressionTest extends BaseTest {
     
     // Global Customer Data for shared states
     String firstNamePrefix = "auto customer 1 ";
-    static String firstName = "auto customer 1 " + (System.currentTimeMillis() % 100000); // Unique suffix
+    static String firstName = "automate 1 " + (System.currentTimeMillis() % 100000); // Unique suffix
     static String lastName = "User_" + (System.currentTimeMillis() % 100000);
     String zipCode = "77808"; // Austin / TX
     String phoneNumber = "8555555555"; 
