@@ -11,9 +11,12 @@ public class OrderCreationRegressionTest extends BaseTest {
     String password = "Sourcemash@123!";
     
     // Global Customer Data for shared states
-    String firstName = "Auto";
-    static String lastName = "User_" + System.currentTimeMillis();
+    String firstNamePrefix = "auto customer 1 ";
+    static String firstName = "auto customer 1 " + (System.currentTimeMillis() % 100000); // Unique suffix
+    static String lastName = "User_" + (System.currentTimeMillis() % 100000);
     String zipCode = "77808"; // Austin / TX
+    String phoneNumber = "8555555555"; 
+    String addressLine1 = "123 Star Street";
     
     // Item Data
     String stockItemToSearch = "Sofa"; // Example
@@ -44,7 +47,7 @@ public class OrderCreationRegressionTest extends BaseTest {
         
         System.out.println("Navigating to Customers...");
         dashboardPage.navigateToCustomers();
-        customerPage.createCustomer(firstName, lastName, zipCode);
+        customerPage.createCustomer(firstName, lastName, phoneNumber, addressLine1, zipCode);
     }
 
     @Test(priority = 3, dependsOnMethods = "testCreateCustomer", description = "Selects the previous customer, creates a quote, and adds in-stock items.")
