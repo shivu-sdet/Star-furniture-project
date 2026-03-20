@@ -21,7 +21,9 @@ public class DashboardPage {
     }
 
     public void navigateToCustomers() {
+        System.out.println("Navigating to Customers...");
         wait.until(ExpectedConditions.elementToBeClickable(customerTab)).click();
+        wait.until(ExpectedConditions.urlContains("/customer"));
     }
 
     public void navigateToQuotes() {
